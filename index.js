@@ -3,6 +3,7 @@ const express = require('express')
 const mongoose = require("mongoose")
 const { connectDB } = require("./src/config/db")
 const appsRouter = require("./src/api/routes/apps")
+const recursosRouter = require("./src/api/routes/recursos")
 
 const app = express()
 
@@ -13,7 +14,9 @@ const app = express()
 app.use(express.json())
 connectDB()
 
+app.use("/api/v1/recursos/", recursosRouter)
 app.use("/api/v1/apps/", appsRouter)
+
 
 app.use('*', (req, res, next) => {
   return res.status(404).json('Route not found')

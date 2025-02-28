@@ -1,5 +1,5 @@
 const mongoose =require("mongoose")
-const { boolean } = require("webidl-conversions")
+/*const { boolean } = require("webidl-conversions")*/
 
 const appSchema = new mongoose.Schema({
   nombre:{type:String, required:true},

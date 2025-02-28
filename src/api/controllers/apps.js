@@ -11,7 +11,7 @@ const getApps = async (req, res, next) => {
 
 const getAppsById = async (req, res, next) => {
   try {
-    const {id }= req.params.id
+    const {id }= req.params
     const app = await App.findById(id)
     return res.status(200).json(app)
     
@@ -33,7 +33,7 @@ const getAppsByTema = async (req, res, next) => {
 const getAppsByPricePro = async (req, res, next) => {
   try {
     const { precioPro }= req.params
-    const apps = await App.find({precioPro: {$lt:precioPro}})
+    const apps = await App.find({precioPro: {$lt: precioPro}})
     return res.status(200).json(apps)
     
   } catch (error) {
