@@ -10,10 +10,10 @@ const app = express()
 .connect(process.env.DB_URL)
 .then(()=> console.log ("conectado con exito a la bbdd"))
 .catch(() => console.log("Error al conectar a la bbdd"))*/
-
+app.use(express.json())
 connectDB()
 
-app.use(("/api/v1/apps", appsRouter))
+app.use("/api/v1/apps/", appsRouter)
 
 app.use('*', (req, res, next) => {
   return res.status(404).json('Route not found')

@@ -43,6 +43,7 @@ const getAppsByPricePro = async (req, res, next) => {
 }
 const postApp = async (req, res, next) => {
   try {
+    console.log(req.body)
     const newApp = new App(req.body)
     const appSaved = await newApp.save()
     return res.status(201).json(appSaved)
@@ -56,7 +57,7 @@ const putApp = async (req, res, next) => {
   try {
     const { id }= req.params
     const newApp = new App(req.body)
-    newApp_id = id
+    newApp._id = id
     const appUpdated = await App.findByIdAndUpdate(id, newApp, {new: true})
     return res.status(200).json(appUpdated)
 
