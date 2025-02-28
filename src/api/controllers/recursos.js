@@ -2,7 +2,7 @@ const Recurso = require("../models/recursos")
 
 const getRecursos = async (req, res, next) => {
   try {
-    const recursos = await Recurso.find();
+    const recursos = await Recurso.find().populate("apps");
     return res.status(200).json(recursos)
   } catch (error) {
     return res.status(400).json("Error en get") 
@@ -12,7 +12,7 @@ const getRecursos = async (req, res, next) => {
 const getRecursosById = async (req, res, next) => {
   try {
     const {id }= req.params
-    const recurso = await Recurso.findById(id)
+    const recurso = await Recurso.findById(id).populate("apps")
     return res.status(200).json(recurso)
     
   } catch (error) {
