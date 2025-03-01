@@ -11,7 +11,6 @@ const appSchema = new mongoose.Schema({
     [ "presentaciones",
       "videos", 
       "musica",
-      "codigo"
     ]
       },
 },
