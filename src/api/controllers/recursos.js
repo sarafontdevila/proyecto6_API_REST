@@ -46,6 +46,7 @@ const putRecurso = async (req, res, next) => {
     return res.status(400).json("Error en put")
   }
 }
+
 const deleteRecurso = async (req, res, next) => {
   try {
     const {id }= req.params
