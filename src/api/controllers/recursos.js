@@ -35,10 +35,8 @@ const postRecurso = async (req, res, next) => {
 const putRecurso = async (req, res, next) => {
   try {
     const { id }= req.params
-    const oldRecurso = await Recurso.findById(id)
     const newRecurso = new Recurso(req.body)
     newRecurso._id = id
-    newRecurso.apps = [...oldRecurso.apps,...req.body.apps]
     const recursoUpdated = await Recurso.findByIdAndUpdate(id, newRecurso, {new: true})
     return res.status(200).json(recursoUpdated)
 
