@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "appsSeed": "node ./src/utils/seeds/app.js"
+    "appsSeed": "node ./src/utils/seeds/app.js",
+    "recursosSeed": "node ./src/utils/seeds/recursos.js"
   },
   "keywords": [],
   "author": "",
